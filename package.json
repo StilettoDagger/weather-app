@@ -1,7 +1,7 @@
 {
 	"name": "package",
 	"version": "1.0.0",
-	"description": "A Webpack project with Tailwind CSS and PostCSS",
+	"description": "A simple weather forecast app.",
 	"main": "index.js",
 	"scripts": {
 		"test": "npx eslint src/",
@@ -15,38 +15,38 @@
 	},
 	"repository": {
 		"type": "git",
-		"url": "git+https://github.com/StilettoDagger/webpack-tailwind-template.git"
+		"url": "git+https://github.com/StilettoDagger/weather-app.git"
 	},
 	"keywords": [],
 	"author": "",
 	"license": "MIT",
 	"bugs": {
-		"url": "https://github.com/StilettoDagger/webpack-tailwind-template/issues"
+		"url": "https://github.com/StilettoDagger/weather-app/issues"
 	},
-	"homepage": "https://github.com/StilettoDagger/webpack-tailwind-template",
+	"homepage": "https://github.com/StilettoDagger/weather-app",
 	"devDependencies": {
-		"@eslint/js": "^9.31.0",
-		"@eslint/json": "^0.13.0",
-		"@iconify/json": "^2.2.352",
+		"@eslint/js": "^9.39.0",
+		"@eslint/json": "^0.13.2",
+		"@iconify/json": "^2.2.402",
 		"@iconify/tailwind4": "^1.0.6",
-		"@tailwindcss/postcss": "^4.1.10",
+		"@tailwindcss/postcss": "^4.1.16",
 		"autoprefixer": "^10.4.21",
 		"css-loader": "^7.1.2",
-		"eslint": "^9.31.0",
+		"eslint": "^9.39.0",
 		"eslint-config-prettier": "^10.1.8",
-		"globals": "^16.3.0",
-		"html-webpack-plugin": "^5.6.3",
+		"globals": "^16.5.0",
+		"html-webpack-plugin": "^5.6.4",
 		"husky": "^9.1.7",
-		"lint-staged": "^16.1.2",
+		"lint-staged": "^16.2.6",
 		"postcss": "^8.5.6",
-		"postcss-loader": "^8.1.1",
+		"postcss-loader": "^8.2.0",
 		"postcss-nested": "^7.0.2",
 		"prettier": "3.6.2",
-		"prettier-plugin-tailwindcss": "^0.6.14",
+		"prettier-plugin-tailwindcss": "^0.7.1",
 		"style-loader": "^4.0.0",
 		"tailwind": "^4.0.0",
-		"tailwindcss": "^4.1.10",
-		"webpack": "^5.99.9",
+		"tailwindcss": "^4.1.16",
+		"webpack": "^5.102.1",
 		"webpack-cli": "^6.0.1",
 		"webpack-dev-server": "^5.2.2",
 		"webpack-merge": "^6.0.1"
