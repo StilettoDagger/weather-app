@@ -1,2 +1,9 @@
 @import "tailwindcss";
 @plugin "@iconify/tailwind4";
+@import url(https://fonts.bunny.net/css?family=aclonica:400|allura:400|inter:100,200,300,400);
+
+@theme {
+	--font-inter: "Inter", sans-serif;
+	--font-aclonica: "Aclonica", sans-serif;
+	--font-allura: "Allura", handwriting;
+}

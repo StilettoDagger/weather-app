@@ -20,5 +20,23 @@ export default defineConfig([
 		language: "json/json",
 		extends: ["json/recommended"],
 	},
+	{
+		files: [
+			"*.config.{js,cjs,mjs}",
+			"webpack*.{js,cjs,mjs}",
+			"scripts/**/*.{js,cjs,mjs}",
+			"*.cjs",
+			"*.mjs",
+			"*.js",
+		],
+		ignores: ["src/**/*"],
+		languageOptions: {
+			ecmaVersion: "latest",
+			sourceType: "commonjs",
+			globals: {
+				...globals.node,
+			},
+		},
+	},
 	eslintConfigPrettier,
 ]);

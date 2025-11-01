@@ -3,9 +3,31 @@
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>Weather App</title>
+		<title>BreezeCast</title>
 	</head>
-	<body>
-		<div id="app"></div>
+	<body class="bg-sky-200 font-inter text-xl text-neutral-700">
+		<h1 class="mt-4 text-center font-aclonica text-6xl text-black"
+			>BreezeCast</h1
+		>
+		<h2 class="mt-4 text-center font-allura text-3xl text-black/60"
+			>A simple weather forecast app.</h2
+		>
+		<div class="mt-10 flex flex-col justify-center" id="app">
+			<form class="flex justify-center gap-3" id="search-form" novalidate>
+				<input
+					id="search-query"
+					name="search-query"
+					class="rounded-full bg-zinc-200 px-5 py-2 outline-1"
+					type="text"
+					placeholder="Search for a location" />
+				<input
+					id="search-button"
+					name="search-button"
+					class="cursor-pointer rounded-full bg-sky-500 px-4 py-2 text-lg font-bold text-neutral-100 outline-1 outline-black hover:bg-sky-600"
+					type="submit"
+					value="Get weather" />
+			</form>
+			<div id="results"> </div>
+		</div>
 	</body>
 </html>
