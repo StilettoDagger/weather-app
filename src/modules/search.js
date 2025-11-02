@@ -1,4 +1,5 @@
 import getWeatherData from "./weatherData";
+import { showLoading, showResults, hideLoading } from "./results";
 
 const searchQuery = document.getElementById("search-query");
 const searchError = document.getElementById("search-error");
@@ -23,16 +24,17 @@ export default async function addSearchAndValidate() {
 		}
 
 		const query = searchQuery.value;
-		console.log(query);
+		showLoading();
 		try {
 			const data = await getWeatherData(query, "metric");
-			console.log(data);
+			showResults(data);
 		} catch (error) {
 			console.error(error);
 			displaySearchError();
 			searchQuery.setCustomValidity("Invalid query!");
 		} finally {
 			searchQuery.setCustomValidity("");
+			hideLoading();
 		}
 	});
 }
