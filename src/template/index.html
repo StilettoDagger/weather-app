@@ -12,21 +12,25 @@
 		<h2 class="mt-4 text-center font-allura text-3xl text-black/60"
 			>A simple weather forecast app.</h2
 		>
-		<div class="mt-10 flex flex-col justify-center" id="app">
+		<div class="mt-10 flex flex-col justify-center gap-3" id="app">
 			<form class="flex justify-center gap-3" id="search-form" novalidate>
 				<input
 					id="search-query"
 					name="search-query"
-					class="rounded-full bg-zinc-200 px-5 py-2 outline-1"
+					class="rounded-full bg-zinc-200 px-5 py-2 outline-1 invalid:bg-red-300 invalid:outline-red-800"
 					type="text"
-					placeholder="Search for a location" />
+					placeholder="Search for a location"
+					pattern="([A-Za-z]+\s?[A-Za-z]+)+" />
 				<input
 					id="search-button"
 					name="search-button"
-					class="cursor-pointer rounded-full bg-sky-500 px-4 py-2 text-lg font-bold text-neutral-100 outline-1 outline-black hover:bg-sky-600"
+					class="cursor-pointer rounded-[100%] bg-cyan-200 p-2 font-bold text-neutral-100 outline-1 outline-black hover:bg-cyan-300"
 					type="submit"
-					value="Get weather" />
+					value="🔎" />
 			</form>
+			<span
+				id="search-error"
+				class="hidden self-center rounded-full bg-red-800 p-2 text-sm font-bold text-red-100"></span>
 			<div id="results"> </div>
 		</div>
 	</body>
