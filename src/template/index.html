@@ -12,7 +12,9 @@
 		<h2 class="mt-4 text-center font-allura text-3xl text-black/60"
 			>A simple weather forecast app.</h2
 		>
-		<div class="mt-10 flex flex-col justify-center gap-3" id="app">
+		<div
+			class="mt-10 flex flex-col content-center justify-center gap-3"
+			id="app">
 			<form class="flex justify-center gap-3" id="search-form" novalidate>
 				<input
 					id="search-query"
@@ -31,7 +33,7 @@
 			<span
 				id="search-error"
 				class="hidden self-center rounded-full bg-red-800 p-2 text-sm font-bold text-red-100"></span>
-			<div class="hidden" id="results"> </div>
+			<div class="mx-auto hidden w-2/3 grid-cols-4 gap-2" id="results"> </div>
 			<div class="mt-10 hidden justify-center" id="loading">
 				<span class="icon-[line-md--loading-loop] text-5xl"></span>
 			</div>

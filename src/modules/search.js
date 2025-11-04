@@ -1,5 +1,11 @@
 import getWeatherData from "./weatherData";
-import { showLoading, showResults, hideLoading } from "./results";
+import {
+	showLoading,
+	getResults,
+	hideLoading,
+	showResults,
+	clearResults,
+} from "./results";
 
 const searchQuery = document.getElementById("search-query");
 const searchError = document.getElementById("search-error");
@@ -18,6 +24,8 @@ export default async function addSearchAndValidate() {
 	searchForm.addEventListener("submit", async (e) => {
 		e.preventDefault();
 
+		clearResults();
+
 		if (!checkSearchValidity(searchQuery)) {
 			displaySearchError();
 			return;
@@ -27,7 +35,8 @@ export default async function addSearchAndValidate() {
 		showLoading();
 		try {
 			const data = await getWeatherData(query, "metric");
-			showResults(data);
+			getResults(data);
+			showResults();
 		} catch (error) {
 			console.error(error);
 			displaySearchError();
