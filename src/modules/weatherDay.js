@@ -17,7 +17,7 @@ export default class WeatherDay {
 		if (conditions.includes("Clear")) {
 			return "bg-radial from-orange-50 from-50% to-orange-200";
 		} else if (conditions.includes("Rain")) {
-			return "bg-radial from-blue-50 from-50% to-blue-200";
+			return "bg-radial from-cyan-100 from-50% to-blue-200";
 		} else if (conditions.includes("Partially cloudy")) {
 			return "bg-radial from-gray-50 from-50% to-gray-300";
 		} else if (conditions.includes("Cloudy")) {

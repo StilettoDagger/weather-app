@@ -16,23 +16,38 @@
 			class="mt-10 flex flex-col content-center justify-center gap-3"
 			id="app">
 			<form class="flex justify-center gap-3" id="search-form" novalidate>
-				<input
-					id="search-query"
-					name="search-query"
-					class="rounded-full bg-zinc-200 px-5 py-2 outline-1 invalid:bg-red-300 invalid:outline-red-800"
-					type="text"
-					placeholder="Search for a location"
-					pattern="([A-Za-z]+\s?[A-Za-z]+)+" />
-				<input
-					id="search-button"
-					name="search-button"
-					class="cursor-pointer rounded-[100%] bg-cyan-200 p-2 font-bold text-neutral-100 outline-1 outline-black hover:bg-cyan-300"
-					type="submit"
-					value="🔎" />
+				<!-- TODO: Refactor search style -->
+				<div
+					class="rounded-full bg-zinc-200 px-5 py-2 outline-2 focus-within:outline-sky-600 [&:has(input:invalid)]:bg-red-300 [&:has(input:invalid)]:outline-red-800">
+					<label for="search-query" class="sr-only"
+						>Search for a location</label
+					>
+					<button
+						type="submit"
+						name="search-button"
+						id="search-button"
+						aria-label="Search"
+						class="cursor-pointer">
+						<span
+							class="icon-[material-symbols--search-rounded] align-middle text-3xl hover:text-neutral-950"
+							aria-hidden="true"></span>
+					</button>
+					<input
+						id="search-query"
+						name="search-query"
+						type="search"
+						class="align-middle focus:border-none focus:outline-none"
+						enterkeyhint="search"
+						aria-describedby="search-error"
+						aria-invalid="false"
+						placeholder="Search for a location"
+						pattern="([A-Za-z]+\s?[A-Za-z]+)+" />
+				</div>
 			</form>
 			<span
 				id="search-error"
 				class="hidden self-center rounded-full bg-red-800 p-2 text-sm font-bold text-red-100"></span>
+			<!-- TODO: Add div to display current weather -->
 			<div class="mx-auto hidden w-2/3 grid-cols-4 gap-2" id="results"> </div>
 			<div class="mt-10 hidden justify-center" id="loading">
 				<span class="icon-[line-md--loading-loop] text-5xl"></span>
