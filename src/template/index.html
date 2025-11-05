@@ -16,7 +16,6 @@
 			class="mt-10 flex flex-col content-center justify-center gap-3"
 			id="app">
 			<form class="flex justify-center gap-3" id="search-form" novalidate>
-				<!-- TODO: Refactor search style -->
 				<div
 					class="rounded-full bg-zinc-200 px-5 py-2 outline-2 focus-within:outline-sky-600 [&:has(input:invalid)]:bg-red-300 [&:has(input:invalid)]:outline-red-800">
 					<label for="search-query" class="sr-only"
@@ -48,7 +47,12 @@
 				id="search-error"
 				class="hidden self-center rounded-full bg-red-800 p-2 text-sm font-bold text-red-100"></span>
 			<!-- TODO: Add div to display current weather -->
-			<div class="mx-auto hidden w-2/3 grid-cols-4 gap-2" id="results"> </div>
+			<div class="hidden flex-col gap-8" id="results">
+				<div id="current-weather" class="flex flex-col gap-4"></div>
+				<div
+					id="weather-days"
+					class="mx-auto grid w-2/3 grid-cols-4 gap-2"></div>
+			</div>
 			<div class="mt-10 hidden justify-center" id="loading">
 				<span class="icon-[line-md--loading-loop] text-5xl"></span>
 			</div>
