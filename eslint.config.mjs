@@ -9,10 +9,12 @@ export default defineConfig([
 		files: ["**/*.{js,mjs,cjs}"],
 		plugins: { js },
 		extends: ["js/recommended"],
+		ignores: ["dist/**/*"]
 	},
 	{
 		files: ["**/*.{js,mjs,cjs}"],
 		languageOptions: { globals: globals.browser },
+		ignores:["dist/**/*"]
 	},
 	{
 		files: ["**/*.json"],
