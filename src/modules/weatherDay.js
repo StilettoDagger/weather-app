@@ -1,4 +1,5 @@
-import { format, formatISO } from "date-fns";
+import { format, formatISO, isToday } from "date-fns";
+import { getUnitMode } from "./tempUnit";
 
 export default class WeatherDay {
 	constructor(data, resultsDiv) {
@@ -37,7 +38,7 @@ export default class WeatherDay {
 
 		weatherCard.innerHTML = `
         <h3 id="${headingId}">
-            <time datetime="${dateAttr}">${dateText}</time>
+            <time datetime="${dateAttr}">${dateText} ${isToday(this.date) ? "(today)" : ""}</time>
         </h3>
         <img class="h-16" src="${this.imgURL}" alt="${this.icon} icon" />
         <p class="text-center">
@@ -47,15 +48,15 @@ export default class WeatherDay {
         <p class="text-center align-middle">
             <span class="sr-only">Current temperature: </span>
             <span class="icon-[material-symbols--thermometer] text-2xl align-middle" style="color: #00d000;"></span>
-         ${this.temp}°
+         ${this.temp}°${getUnitMode().toUpperCase()}
         </p>
         <p class="text-center align-middle">
             <span class="sr-only">Maximum temperature: </span>
-            <span class="icon-[material-symbols--thermostat-arrow-up] text-2xl align-middle" style="color: #d00;"></span> ${this.tempMax}°
+            <span class="icon-[material-symbols--thermostat-arrow-up] text-2xl align-middle" style="color: #d00;"></span> ${this.tempMax}°${getUnitMode().toUpperCase()}
         </p>
         <p class="text-center align-middle">
             <span class="sr-only">Minimum temperature: </span>
-            <span class="icon-[material-symbols--thermostat-arrow-down] text-2xl align-middle" style="color: #0000d0;"></span> ${this.tempMin}°
+            <span class="icon-[material-symbols--thermostat-arrow-down] text-2xl align-middle" style="color: #0000d0;"></span> ${this.tempMin}°${getUnitMode().toUpperCase()}
         </p>
         `;
 		weatherCard.setAttribute("aria-labelledby", headingId);
