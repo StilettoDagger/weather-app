@@ -5,13 +5,17 @@ import {
 	hideLoading,
 	showResults,
 	clearResults,
+	getCurrentWeatherData,
 } from "./results";
+import { unitToggleBtn, getUnitMode } from "./tempUnit";
 
 const searchQuery = document.getElementById("search-query");
 const searchError = document.getElementById("search-error");
 const searchForm = document.getElementById("search-form");
 
 searchQuery.value = "";
+
+let searched = "";
 
 export default async function addSearchAndValidate() {
 	searchQuery.addEventListener("input", () => {
@@ -21,31 +25,47 @@ export default async function addSearchAndValidate() {
 		}
 	});
 
-	searchForm.addEventListener("submit", async (e) => {
-		e.preventDefault();
+	searchForm.addEventListener("submit", handleSearching);
 
-		clearResults();
-
-		if (!checkSearchValidity(searchQuery)) {
-			displaySearchError();
+	unitToggleBtn.addEventListener("click", (e) => {
+		if (
+			!searchQuery.value.trim() ||
+			searchQuery.value !== searched ||
+			!getCurrentWeatherData()
+		) {
 			return;
 		}
-
-		const query = searchQuery.value;
-		showLoading();
-		try {
-			const data = await getWeatherData(query, "metric");
-			getResults(data);
-			showResults();
-		} catch (error) {
-			console.error(error);
-			displaySearchError();
-			searchQuery.setCustomValidity("Invalid query!");
-		} finally {
-			searchQuery.setCustomValidity("");
-			hideLoading();
-		}
+		handleSearching(e);
 	});
+}
+
+async function handleSearching(e) {
+	e.preventDefault();
+
+	clearResults();
+
+	if (!checkSearchValidity(searchQuery)) {
+		displaySearchError();
+		return;
+	}
+
+	const query = searchQuery.value;
+	showLoading();
+	try {
+		const tempMode = getUnitMode() === "c" ? "metric" : "us";
+		console.log(tempMode);
+		const data = await getWeatherData(query, tempMode);
+		getResults(data);
+		showResults();
+		searched = query;
+	} catch (error) {
+		console.error(error);
+		displaySearchError();
+		searchQuery.setCustomValidity("Invalid query!");
+	} finally {
+		searchQuery.setCustomValidity("");
+		hideLoading();
+	}
 }
 
 function displaySearchError() {

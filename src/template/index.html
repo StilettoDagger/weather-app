@@ -5,6 +5,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>BreezeCast</title>
 	</head>
+
 	<body class="bg-sky-200 font-inter text-xl text-neutral-700">
 		<h1 class="mt-4 text-center font-aclonica text-6xl text-black"
 			>BreezeCast</h1
@@ -15,7 +16,10 @@
 		<div
 			class="mt-10 flex flex-col content-center justify-center gap-3"
 			id="app">
-			<form class="flex justify-center gap-3" id="search-form" novalidate>
+			<form
+				class="flex content-center justify-center gap-3"
+				id="search-form"
+				novalidate>
 				<div
 					class="rounded-full bg-zinc-200 px-5 py-2 outline-2 focus-within:outline-sky-600 [&:has(input:invalid)]:bg-red-300 [&:has(input:invalid)]:outline-red-800">
 					<label for="search-query" class="sr-only"
@@ -42,11 +46,20 @@
 						placeholder="Search for a location"
 						pattern="([A-Za-z]+\s?[A-Za-z]+)+" />
 				</div>
+				<label for="unit-toggle" class="sr-only">Temperature unit</label>
+				<button
+					id="unit-toggle"
+					name="unit-toggle"
+					type="button"
+					aria-pressed="false"
+					arial-label="Units: Celsius"
+					class="size-10 cursor-pointer self-center rounded-full bg-sky-100 text-base font-bold outline-2 transition duration-100 hover:bg-sky-200 focus-visible:outline-sky-600">
+					°C
+				</button>
 			</form>
 			<span
 				id="search-error"
 				class="hidden self-center rounded-full bg-red-800 p-2 text-sm font-bold text-red-100"></span>
-			<!-- TODO: Add div to display current weather -->
 			<div class="hidden flex-col gap-8" id="results">
 				<div id="current-weather" class="flex flex-col gap-4"></div>
 				<div

@@ -43,6 +43,11 @@ export function clearResults() {
 	resultsDiv.classList.remove("flex");
 	currentWeatherDiv.innerHTML = "";
 	weatherDaysDiv.innerHTML = "";
+	currentWeatherData = null;
 
 	weatherDays.length = 0;
+}
+
+export function getCurrentWeatherData() {
+	return currentWeatherData;
 }

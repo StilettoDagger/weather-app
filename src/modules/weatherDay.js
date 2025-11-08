@@ -47,15 +47,15 @@ export default class WeatherDay {
         <p class="text-center align-middle">
             <span class="sr-only">Current temperature: </span>
             <span class="icon-[material-symbols--thermometer] text-2xl align-middle" style="color: #00d000;"></span>
-         ${this.temp}
+         ${this.temp}°
         </p>
         <p class="text-center align-middle">
             <span class="sr-only">Maximum temperature: </span>
-            <span class="icon-[material-symbols--thermostat-arrow-up] text-2xl align-middle" style="color: #d00;"></span> ${this.tempMax}
+            <span class="icon-[material-symbols--thermostat-arrow-up] text-2xl align-middle" style="color: #d00;"></span> ${this.tempMax}°
         </p>
         <p class="text-center align-middle">
             <span class="sr-only">Minimum temperature: </span>
-            <span class="icon-[material-symbols--thermostat-arrow-down] text-2xl align-middle" style="color: #0000d0;"></span> ${this.tempMin}
+            <span class="icon-[material-symbols--thermostat-arrow-down] text-2xl align-middle" style="color: #0000d0;"></span> ${this.tempMin}°
         </p>
         `;
 		weatherCard.setAttribute("aria-labelledby", headingId);
