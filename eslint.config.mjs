@@ -6,15 +6,15 @@ import eslintConfigPrettier from "eslint-config-prettier";
 
 export default defineConfig([
 	{
-		files: ["**/*.{js,mjs,cjs}"],
+		files: ["src/**/*.{js,mjs,cjs}"],
 		plugins: { js },
 		extends: ["js/recommended"],
-		ignores: ["dist/**/*"]
-	},
-	{
-		files: ["**/*.{js,mjs,cjs}"],
-		languageOptions: { globals: globals.browser },
-		ignores:["dist/**/*"]
+		languageOptions: {
+			ecmaVersion: "latest",
+			sourceType: "module",
+			globals: {...globals.browser},
+		},
+		ignores: ["dist/**"]
 	},
 	{
 		files: ["**/*.json"],
@@ -31,6 +31,7 @@ export default defineConfig([
 			"*.mjs",
 			"*.js",
 		],
+		extends:["js/recommended"],
 		ignores: ["src/**/*"],
 		languageOptions: {
 			ecmaVersion: "latest",
